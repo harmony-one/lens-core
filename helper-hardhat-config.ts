@@ -2,6 +2,7 @@ import {
   eEthereumNetwork,
   ePolygonNetwork,
   eXDaiNetwork,
+  eHarmonyNetwork,
   iParamsPerNetwork,
 } from './helpers/types';
 
@@ -22,4 +23,7 @@ export const NETWORKS_RPC_URL: iParamsPerNetwork<string> = {
   [ePolygonNetwork.mumbai]: process.env.MUMBAI_RPC_URL,
   [ePolygonNetwork.matic]: process.env.POLYGON_RPC_URL,
   [eXDaiNetwork.xdai]: 'https://rpc.xdaichain.com/',
+  [eHarmonyNetwork.testnet0]: 'https://api.s0.b.hmny.io',
+  [eHarmonyNetwork.mainnet0]: 'https://api.harmony.one',
+  [eHarmonyNetwork.mainnet1]: 'https://s1.api.harmony.one',
 };
