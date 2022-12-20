@@ -1,6 +1,6 @@
 import { HardhatUserConfig } from 'hardhat/types';
 import { accounts } from './helpers/test-wallets';
-import { eEthereumNetwork, eNetwork, ePolygonNetwork, eXDaiNetwork } from './helpers/types';
+import { eEthereumNetwork, eNetwork, ePolygonNetwork, eXDaiNetwork, eHarmonyNetwork } from './helpers/types';
 import { HARDHATEVM_CHAINID } from './helpers/hardhat-constants';
 import { NETWORKS_RPC_URL } from './helper-hardhat-config';
 import dotenv from 'dotenv';
@@ -35,7 +35,7 @@ const getCommonNetworkConfig = (networkName: eNetwork, networkId: number) => ({
   accounts: {
     mnemonic: MNEMONIC,
     path: MNEMONIC_PATH,
-    initialIndex: 0,
+    initialIndex: 1,
     count: 20,
   },
 });
@@ -73,6 +73,7 @@ const config: HardhatUserConfig = {
     sandbox: getCommonNetworkConfig(ePolygonNetwork.mumbai, 80001),
     mumbai: getCommonNetworkConfig(ePolygonNetwork.mumbai, 80001),
     xdai: getCommonNetworkConfig(eXDaiNetwork.xdai, 100),
+    harmonytestnet0: getCommonNetworkConfig(eHarmonyNetwork.testnet0, 1666700000),
     hardhat: {
       hardfork: 'london',
       blockGasLimit: DEFAULT_BLOCK_GAS_LIMIT,
@@ -92,7 +93,7 @@ const config: HardhatUserConfig = {
       accounts: {
         mnemonic: MNEMONIC,
         path: MNEMONIC_PATH,
-        initialIndex: 0,
+        initialIndex: 10,
         count: 20,
       },
     },
