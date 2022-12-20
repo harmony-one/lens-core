@@ -2,7 +2,7 @@ export interface SymbolMap<T> {
   [symbol: string]: T;
 }
 
-export type eNetwork = eEthereumNetwork | ePolygonNetwork | eXDaiNetwork;
+export type eNetwork = eEthereumNetwork | ePolygonNetwork | eXDaiNetwork | eHarmonyNetwork;
 
 export enum eEthereumNetwork {
   kovan = 'kovan',
@@ -22,6 +22,12 @@ export enum eXDaiNetwork {
   xdai = 'xdai',
 }
 
+export enum eHarmonyNetwork {
+  testnet0 = 'testnet0',
+  mainnet0 = 'mainnet0',
+  mainnet1 = 'mainnet1'
+}
+
 export enum EthereumNetworkNames {
   kovan = 'kovan',
   ropsten = 'ropsten',
@@ -38,12 +44,14 @@ export type tStringTokenSmallUnits = string; // 1 wei, or 1 basic unit of USDC, 
 export type iParamsPerNetwork<T> =
   | iEthereumParamsPerNetwork<T>
   | iPolygonParamsPerNetwork<T>
-  | iXDaiParamsPerNetwork<T>;
+  | iXDaiParamsPerNetwork<T>
+  | iHarmonyParamsPerNetwork<T>;
 
 export interface iParamsPerNetworkAll<T>
   extends iEthereumParamsPerNetwork<T>,
     iPolygonParamsPerNetwork<T>,
-    iXDaiParamsPerNetwork<T> {}
+    iXDaiParamsPerNetwork<T>,
+    iHarmonyParamsPerNetwork<T> {}
 
 export interface iEthereumParamsPerNetwork<eNetwork> {
   [eEthereumNetwork.harhatevm]: eNetwork;
@@ -61,6 +69,12 @@ export interface iPolygonParamsPerNetwork<T> {
 
 export interface iXDaiParamsPerNetwork<T> {
   [eXDaiNetwork.xdai]: T;
+}
+
+export interface iHarmonyParamsPerNetwork<T> {
+  [eHarmonyNetwork.testnet0]: T;
+  [eHarmonyNetwork.mainnet0]: T;
+  [eHarmonyNetwork.mainnet1]: T;
 }
 
 export interface ObjectString {
