@@ -40,7 +40,7 @@ task('full-deploy', 'deploys the entire Lens Protocol').setAction(async ({}, hre
   const accounts = await ethers.getSigners();
   const deployer = accounts[0];
   const governance = accounts[1];
-  const treasuryAddress = accounts[2].address;
+  const treasuryAddress = accounts[0].address;
   const proxyAdminAddress = deployer.address;
   const profileCreatorAddress = deployer.address;
 
